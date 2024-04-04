@@ -13,6 +13,9 @@
         android:theme="@style/Theme.LoanEMICalculator"
         tools:targetApi="31">
         <activity
+            android:name=".Calculators.Tenure_Calculator"
+            android:exported="false" />
+        <activity
             android:name=".Calculators.SIP_Calculator"
             android:exported="false" />
         <activity

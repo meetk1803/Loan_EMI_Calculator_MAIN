@@ -179,7 +179,12 @@
                         android:text="Years"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Years"
                         android:layout_width="match_parent"
@@ -210,7 +215,12 @@
                         android:text="Months"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Months"
                         android:layout_width="match_parent"
@@ -241,7 +251,12 @@
                         android:text="Days"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Days"
                         android:layout_width="match_parent"
@@ -288,7 +303,12 @@
                         android:text="Months"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Months_second"
                         android:layout_width="match_parent"
@@ -319,7 +339,12 @@
                         android:text="Days"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Days_second"
                         android:layout_width="match_parent"
@@ -367,7 +392,12 @@
                         android:text="Years"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Years_third"
                         android:layout_width="match_parent"
@@ -398,7 +428,12 @@
                         android:text="Months"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Months_third"
                         android:layout_width="match_parent"
@@ -429,7 +464,12 @@
                         android:text="Days"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Days_third"
                         android:layout_width="match_parent"
@@ -467,7 +507,12 @@
                         android:text="Weeks"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Weeks_third"
                         android:layout_width="match_parent"
@@ -498,7 +543,12 @@
                         android:text="Hours"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_hours_third"
                         android:layout_width="match_parent"
@@ -529,7 +579,12 @@
                         android:text="Minutes"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Minutes_third"
                         android:layout_width="match_parent"
@@ -567,7 +622,12 @@
                         android:text="Seconds"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/answer_color"/>
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/txt_Seconds_third"
                         android:layout_width="match_parent"
@@ -599,7 +659,6 @@
                         android:text="Minutes"
                         android:textColor="@color/answer_color"
                         android:textSize="@dimen/_15sdp" />
-
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"

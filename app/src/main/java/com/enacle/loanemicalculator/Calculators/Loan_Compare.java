@@ -109,7 +109,15 @@ public class Loan_Compare extends AppCompatActivity {
         // Hide the soft keyboard
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
+        if (edtPrincipalFirst.getText().toString().isEmpty() ||
+                edtPrincipalSecond.getText().toString().isEmpty() ||
+                edtRateFirst.getText().toString().isEmpty() ||
+                edtRateSecond.getText().toString().isEmpty() ||
+                edtTermFirst.getText().toString().isEmpty() ||
+                edtTermSecond.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
+            return;
+        }
         try {
             // Parse input values
             double principalFirst = Double.parseDouble(edtPrincipalFirst.getText().toString());
@@ -152,9 +160,9 @@ public class Loan_Compare extends AppCompatActivity {
             double interestDifference = Math.abs(totalInterestFirst - totalInterestSecond);
             double paymentDifference = Math.abs(totalPaymentFirst - totalPaymentSecond);
 
-            edtEMIDiffer.setText("Loan 1 " + (monthlyPaymentFirst < monthlyPaymentSecond ? "lower" : "higher") + " by " + String.format("%.2f", emiDifference));
-            edtInterestDiffer.setText("Loan 1 " + (totalInterestFirst < totalInterestSecond ? "lower" : "higher") + " by " + String.format("%.2f", interestDifference));
-            edtPaymentDiffer.setText("Loan 1 " + (totalPaymentFirst < totalPaymentSecond ? "lower" : "higher") + " by " + String.format("%.2f", paymentDifference));
+            edtEMIDiffer.setText("Difference : Loan 1 " + (monthlyPaymentFirst < monthlyPaymentSecond ? "lower" : "higher") + " by " + String.format("%.2f", emiDifference));
+            edtInterestDiffer.setText("Difference : Loan 1 " + (totalInterestFirst < totalInterestSecond ? "lower" : "higher") + " by " + String.format("%.2f", interestDifference));
+            edtPaymentDiffer.setText("Difference : Loan 1 " + (totalPaymentFirst < totalPaymentSecond ? "lower" : "higher") + " by " + String.format("%.2f", paymentDifference));
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -16,9 +16,12 @@
     <string name="header_principal_amount">Principal Amount</string>
     <string name="header_rate_of_interest">Rate of Interest (%)</string>
     <string name="header_loan_term_in_year">Loan Tenure</string>
-    <string name="header_monthly_emi">Monthly EMI :</string>
-    <string name="header_total_interest">Total Interest :</string>
-    <string name="header_total_payment">Total Payment :</string>
+    <string name="header_monthly_emi">Monthly EMI</string>
+    <string name="header_monthly_emi1">:: Monthly EMI ::</string>
+    <string name="header_total_interest">Total Interest</string>
+    <string name="header_total_interest1">:: Total Interest ::</string>
+    <string name="header_total_payment">Total Payment</string>
+    <string name="header_total_payment1">:: Total Payment ::</string>
     <string name="home_1">Equated Monthly Instalment</string>
     <string name="home_2">The EMI calculator helps you arrive at the right home loan amount that best fits your monthly budget, by helping you decide the loan EMI and tenure most suitable to your financial position</string>
     <string name="btn_reset">Reset</string>
@@ -105,5 +108,9 @@
     <string name="title_emi">EMI</string>
     <string name="title_loan_amount">Loan Amount</string>
     <string name="title_difference">Difference :</string>
+    <string name="title_exp_annual_return">Exp. Annual Return %</string>
+    <string name="title_monthly_amount">Monthly Amount</string>
+    <string name="title_period">Period</string>
+    <string name="title_total_investment">Total Investment</string>
 
 </resources>
