@@ -104,5 +104,6 @@
     <string name="months">Months</string>
     <string name="title_emi">EMI</string>
     <string name="title_loan_amount">Loan Amount</string>
+    <string name="title_difference">Difference :</string>
 
 </resources>

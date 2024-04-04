@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.enacle.loanemicalculator.Calculators.EMI_Calculator;
 import com.enacle.loanemicalculator.Calculators.Loan_Calculator;
+import com.enacle.loanemicalculator.Calculators.Loan_Compare;
 import com.google.android.material.card.MaterialCardView;
 
 public class Loan_EMI_Selection extends AppCompatActivity {
@@ -39,6 +40,12 @@ public class Loan_EMI_Selection extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Loan_EMI_Selection.this, Loan_Calculator.class));
+            }
+        });
+        card_loan_compare_calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Loan_EMI_Selection.this, Loan_Compare.class));
             }
         });
 
