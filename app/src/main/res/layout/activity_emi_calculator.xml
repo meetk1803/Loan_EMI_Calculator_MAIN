@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
+    android:orientation="vertical"
+    tools:context="com.enacle.loanemicalculator.Calculators.EMI_Calculator">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@color/white"
+        app:title="EMI Calculator"
+        app:titleTextColor="@color/app_bg_color">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/header_principal_amount"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:placeholderTextColor="@color/white"
+                    app:placeholderText="0"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:boxStrokeColor="@color/white"
+                    app:cursorColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_principal_amt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/field_color"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/header_rate_of_interest"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:placeholderTextColor="@color/white"
+                    app:placeholderText="0"
+                    app:boxStrokeColor="@color/white"
+                    app:cursorColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/field_color"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_regular"
+                    android:gravity="start"
+                    android:text="@string/header_loan_term_in_year"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:placeholderTextColor="@color/white"
+                    app:placeholderText="0"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:boxStrokeColor="@color/white"
+                    app:cursorColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/field_color"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/gradient"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/tv_years"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:text="@string/years"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_months"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:text="@string/months"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btn_business_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/kanit_medium"
+                    android:padding="@dimen/_1sdp"
+                    android:text="@string/btn_reset"
+                    android:textColor="@color/field_color"
+                    android:textSize="@dimen/_18sdp" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btn_business_calculate"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/field_color"
+                    android:fontFamily="@font/kanit_medium"
+                    android:padding="@dimen/_1sdp"
+                    android:text="@string/btn_calculate"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp" />
+
+            </LinearLayout>
+            <View
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/field_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/header_monthly_emi"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:boxBackgroundColor="#D6F8FF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:boxStrokeColor="#00FFFFFF">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_monthly_emi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:inputType="none"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/answer_color"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/header_total_interest"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:boxBackgroundColor="#D6F8FF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:boxStrokeColor="#00FFFFFF">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_t_interest"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:gravity="center"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/answer_color"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/header_total_payment"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:boxBackgroundColor="#D6F8FF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:boxStrokeColor="#00FFFFFF">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_t_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:gravity="center"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/answer_color"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

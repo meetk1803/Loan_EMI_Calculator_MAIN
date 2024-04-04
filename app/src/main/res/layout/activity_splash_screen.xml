@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.enacle.loanemicalculator.Starting_Screens.Splash_Screen">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_200sdp"
+        android:src="@drawable/app_icon" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="@font/kanit_medium"
+        android:gravity="center"
+        android:text="@string/title_app_loan_emi_calculator"
+        android:textColor="@color/app_bg_color"
+        android:textSize="@dimen/_20sdp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center"
+        android:text="@string/title_calculate_your_loan_emis_with_confidence"
+        android:textColor="@color/app_bg_color"
+        android:textSize="@dimen/_12sdp" />
+
+    <!--    <ProgressBar-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_marginTop="@dimen/_30sdp"-->
+    <!--        android:layout_height="@dimen/_35sdp"-->
+    <!--        android:progressTint="@color/white"-->
+    <!--        -->
+    <!--        android:progressBackgroundTint="@color/white"-->
+    <!--        />-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_anim" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="version 1.0"
+        android:textColor="@color/app_bg_color" />
+</LinearLayout>

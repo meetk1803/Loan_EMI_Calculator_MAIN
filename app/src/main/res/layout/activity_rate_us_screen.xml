@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/app_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.enacle.loanemicalculator.Starting_Screens.Rate_us_Screen">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/kanit_medium"
+        android:gravity="center"
+        android:text="@string/title_exit_this_app"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_25sdp" />
+
+
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="top|center"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:src="@drawable/app_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kanit_medium"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:fontFamily="@font/kanit_regular"
+                android:text="@string/header_are_you_sure_you_want_to_exit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+
+
+            <LinearLayout
+                android:id="@+id/layout_rate_yesno"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_70sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="2">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/BTN_NO"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00000830"
+                    android:elevation="0dp"
+                    android:outlineSpotShadowColor="#00FFFFFF"
+                    android:padding="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="@string/BTN_no"
+                    android:textColor="@color/field_color"
+                    android:textSize="@dimen/_15sdp"
+                    app:elevation="0dp"
+                    app:shapeAppearanceOverlay="@style/RoundedCornerOverlay"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="@dimen/_2sdp" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/BTN_YES"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="0dp"
+                    android:outlineSpotShadowColor="#00FFFFFF"
+                    android:padding="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="@string/BTN_yes"
+                    android:textColor="@color/field_color"
+                    android:textSize="@dimen/_15sdp"
+                    app:elevation="0dp"
+                    app:shapeAppearanceOverlay="@style/RoundedCornerOverlay" />
+
+            </LinearLayout>
+
+
+
+</LinearLayout>

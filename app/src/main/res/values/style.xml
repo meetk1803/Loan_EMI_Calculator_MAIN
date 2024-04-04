@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+        <item name="addElevationShadow">@color/black</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="compatShadowEnabled">@color/black</item>
+        <item name="android:spotShadowAlpha">1</item>
+    </style>
+<style name="RoundedBottomImageview" parent="">
+
+    <item name="cornerSizeBottomLeft">10%</item>
+    <item name="cornerSizeBottomRight">10%</item>
+</style>
+
+    <style name="RoundedCornerOverlay">
+        <item name="cornerSize">50%</item> <!-- Adjust the corner size as needed -->
+    </style>
+
+</resources>

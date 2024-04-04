@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
+    android:orientation="vertical"
+    tools:context="com.enacle.loanemicalculator.Starting_Screens.Splash_Screen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/app_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="start"
+                android:text="@string/title_app_loan_emi_calculator"
+                android:textColor="@color/app_bg_color"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6.6"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_privacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/inter_regular"
+                    android:padding="@dimen/_15sdp"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4"
+            android:background="@color/app_bg_color"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/chk_privacy"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:button="@drawable/custom_checkbox_selector"
+                android:paddingLeft="@dimen/_10sdp"
+                android:text="@string/txt_i_agree_with_terms_amp_conditions"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/BTN_decline"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#05FFFFFF"
+                    android:padding="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="@string/BTN_decline"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp"
+                    app:shapeAppearanceOverlay="@style/RoundedCornerOverlay"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="@dimen/_2sdp" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/BTN_accept"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:padding="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="@string/BTN_accept"
+                    android:textColor="@color/app_bg_color"
+                    android:textSize="@dimen/_15sdp"
+                    app:shapeAppearanceOverlay="@style/RoundedCornerOverlay" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
