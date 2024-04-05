@@ -84,7 +84,7 @@ public class GST_Calculator extends AppCompatActivity {
             double cgst = gstAmount / 2;
             double sgst = gstAmount / 2;
 
-            txt_cgst_sgst.setText("(CGST : " +gstRate/2+"% = " + cgst+"),\n(SGST : " +gstRate/2+"% = " + sgst +")");
+            txt_cgst_sgst.setText("(CGST : " +gstRate/2+"% = " + cgst+")\n(SGST : " +gstRate/2+"% = " + sgst +")");
             // Calculate the total amount including GST
             double totalAmount = isAddGST ? netAmount : initialAmount;
 
@@ -111,7 +111,7 @@ public class GST_Calculator extends AppCompatActivity {
         gstRateEditText.setText("");
         gstAmountEditText.setText("");
         netAmountEditText.setText("");
-        txt_cgst_sgst.setText("(CGST : 0.00% = 0),\n(SGST : 0.00% = 0)");
+        txt_cgst_sgst.setText("(CGST : 0.00% = 0)\n(SGST : 0.00% = 0)");
         addGSTRadioButton.setChecked(true);
     }
 

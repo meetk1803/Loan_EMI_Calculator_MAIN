@@ -120,9 +120,9 @@
     <string name="header_rate_of_gst">Rate of GST (%)</string>
     <string name="header_add_gst">Add GST +</string>
     <string name="header_subtract_gst">Subtract GST -</string>
-    <string name="header_net_amount">:: Net Amount ::</string>
-    <string name="header_gst_amount">:: GST Amount ::</string>
-    <string name="header_total_amount_gst_involves">:: Total Amount (GST Involves) ::</string>
+    <string name="header_net_amount">Net Amount</string>
+    <string name="header_gst_amount">GST Amount</string>
+    <string name="header_total_amount_gst_involves">Total Amount (GST Involves)</string>
     <string name="header_cgst">:: CGST ::</string>
     <string name="header_sgst">:: SGST ::</string>
 

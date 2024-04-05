@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/app_bg"
     android:orientation="vertical"
-    tools:context="com.enacle.loanemicalculator.Calculators.EMI_Calculator">
+    tools:context="com.enacle.loanemicalculator.Calculators.GST_Calculator">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -451,7 +451,8 @@
                     android:layout_marginBottom="@dimen/_30sdp"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp"
-                    android:text="(CGST : 0.00% = 0),\n(SGST : 0.00% = 0)"/>
+                    android:lineSpacingExtra="@dimen/_5sdp"
+                    android:text="(CGST : 0.00% = 0)\n(SGST : 0.00% = 0)"/>
 
 
         </LinearLayout>
