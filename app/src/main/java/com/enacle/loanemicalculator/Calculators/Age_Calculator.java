@@ -258,7 +258,24 @@ public class Age_Calculator extends AppCompatActivity {
     }
 
     private void showCustomDatePicker(EditText editText) {
-        // Create a DatePickerDialog with today's date as default
+        // Parse the existing birthdate
+        String existingBirthDate = editText.getText().toString();
+        LocalDate birthDate = parseDate(existingBirthDate);
+        int year, month, dayOfMonth;
+
+        // If birthdate exists, set the initial date to the birthdate
+        if (birthDate != null) {
+            year = birthDate.getYear();
+            month = birthDate.getMonthValue() - 1; // Month is zero-based in DatePickerDialog
+            dayOfMonth = birthDate.getDayOfMonth();
+        } else {
+            // If birthdate doesn't exist or is invalid, set the initial date to today's date
+            year = Calendar.getInstance().get(Calendar.YEAR);
+            month = Calendar.getInstance().get(Calendar.MONTH);
+            dayOfMonth = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        }
+
+        // Create a DatePickerDialog with the initial date set
         DatePickerDialog datePickerDialog = new DatePickerDialog(Age_Calculator.this,
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
@@ -266,9 +283,7 @@ public class Age_Calculator extends AppCompatActivity {
                     String selectedDate = String.format("%02d/%02d/%d", selectedDayOfMonth, selectedMonth + 1, selectedYear);
                     editText.setText(selectedDate);
                 },
-                Calendar.getInstance().get(Calendar.YEAR),
-                Calendar.getInstance().get(Calendar.MONTH),
-                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+                year, month, dayOfMonth);
 
         // Set date picker dialog color
         datePickerDialog.getDatePicker().setBackgroundColor(Color.WHITE); // Setting background color
@@ -277,6 +292,7 @@ public class Age_Calculator extends AppCompatActivity {
         // Show the dialog
         datePickerDialog.show();
     }
+
 
     public void share_info_age(View v) {
         // Get the age information from TextViews
