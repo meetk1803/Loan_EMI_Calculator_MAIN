@@ -11,9 +11,27 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:background="@color/white"
-        app:title="Amortization Schedule"
-        app:titleTextColor="@color/app_bg_color">
+        android:background="@color/footer_color">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/back_arrow"
+            android:onClick="txt_back"
+            android:tint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amortization Schedule"
+            android:fontFamily="@font/inter_regular"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textColor="@color/white"
+            />
+
 
         <ImageView
             android:layout_width="@dimen/_20sdp"
@@ -23,7 +41,7 @@
             android:onClick="download_pdf"
             android:src="@drawable/round_picture_as_pdf_24"
             android:tooltipText="share your info about age"
-            app:tint="@color/field_color" />
+            app:tint="@color/white" />
         <ImageView
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
@@ -32,7 +50,7 @@
             android:onClick="share_info_age"
             android:src="@drawable/baseline_share_24"
             android:tooltipText="share your info about age"
-            app:tint="@color/field_color" />
+            app:tint="@color/white" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView

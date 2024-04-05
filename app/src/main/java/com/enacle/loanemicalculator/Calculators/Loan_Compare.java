@@ -181,6 +181,10 @@ public class Loan_Compare extends AppCompatActivity {
         textView.setTextColor(getResources().getColor(R.color.white));
     }
 
+    public void txt_back(View v){
+        finish();
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

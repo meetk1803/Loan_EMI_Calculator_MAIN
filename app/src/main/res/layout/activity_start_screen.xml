@@ -12,18 +12,38 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-        android:layout_marginBottom="@dimen/_40sdp"
+        android:layout_height="@dimen/_120sdp"
         android:padding="@dimen/_10sdp"
         android:src="@drawable/app_icon" />
 
 
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/home_1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/home_2"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15sdp"
+
+        />
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/BTN_get_started"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_40sdp"
         android:layout_margin="@dimen/_20sdp"
+        android:drawableTint="@color/answer_color"
         android:drawableEnd="@drawable/round_start_24"
         android:fontFamily="@font/kanit_medium"
         android:text="Get Started"
@@ -31,7 +51,7 @@
         android:gravity="center"
         android:padding="0dp"
         android:layout_gravity="center"
-        android:textColor="@color/app_bg_color"
+        android:textColor="@color/footer_color"
         android:textSize="@dimen/_20sdp" />
 
     <GridLayout
@@ -75,7 +95,7 @@
                     android:fontFamily="@font/kanit_medium"
                     android:gravity="center"
                     android:text="@string/txt_share"
-                    android:textColor="@color/app_bg_color"
+                    android:textColor="@color/footer_color"
                     android:textSize="@dimen/_18sdp" />
             </com.google.android.material.card.MaterialCardView>
 
@@ -113,7 +133,7 @@
                     android:fontFamily="@font/kanit_medium"
                     android:gravity="center"
                     android:text="@string/txt_privacy"
-                    android:textColor="@color/app_bg_color"
+                    android:textColor="@color/footer_color"
                     android:textSize="@dimen/_18sdp" />
             </com.google.android.material.card.MaterialCardView>
 

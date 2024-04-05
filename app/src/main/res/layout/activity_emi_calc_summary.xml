@@ -11,9 +11,27 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:background="@color/white"
-        app:title="EMI Calculator"
-        app:titleTextColor="@color/app_bg_color">
+        android:background="@color/footer_color">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_25sdp"
+            android:src="@drawable/back_arrow"
+            android:onClick="txt_back"
+            android:tint="@color/white"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMI Calculate Summary"
+            android:fontFamily="@font/inter_regular"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textColor="@color/white"
+            />
+
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -201,8 +219,9 @@
                     android:backgroundTint="@color/white"
                     android:fontFamily="@font/kanit_medium"
                     android:padding="@dimen/_1sdp"
+                    android:outlineSpotShadowColor="#0027197C"
                     android:text="@string/btn_reset"
-                    android:textColor="@color/field_color"
+                    android:textColor="@color/footer_color"
                     android:textSize="@dimen/_18sdp" />
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -211,8 +230,9 @@
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/field_color"
+                    android:backgroundTint="@color/footer_color"
                     android:fontFamily="@font/kanit_medium"
+                    android:outlineSpotShadowColor="#0027197C"
                     android:padding="@dimen/_1sdp"
                     android:text="@string/btn_calculate"
                     android:textColor="@color/white"
@@ -225,12 +245,12 @@
                 android:layout_height="@dimen/_35sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/btn_color"
+                android:backgroundTint="@color/footer_color"
                 android:fontFamily="@font/kanit_medium"
                 android:padding="@dimen/_1sdp"
                 android:text="Amortization Schedule"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
             <View
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="match_parent"

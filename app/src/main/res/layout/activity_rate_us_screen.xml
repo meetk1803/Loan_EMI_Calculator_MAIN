@@ -75,11 +75,11 @@
                     android:padding="@dimen/_5sdp"
                     android:paddingVertical="@dimen/_10sdp"
                     android:text="@string/BTN_no"
-                    android:textColor="@color/field_color"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp"
                     app:elevation="0dp"
                     app:shapeAppearanceOverlay="@style/RoundedCornerOverlay"
-                    app:strokeColor="@color/white"
+                    app:strokeColor="@color/footer_color"
                     app:strokeWidth="@dimen/_2sdp" />
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -94,7 +94,7 @@
                     android:padding="@dimen/_5sdp"
                     android:paddingVertical="@dimen/_10sdp"
                     android:text="@string/BTN_yes"
-                    android:textColor="@color/field_color"
+                    android:textColor="@color/footer_color"
                     android:textSize="@dimen/_15sdp"
                     app:elevation="0dp"
                     app:shapeAppearanceOverlay="@style/RoundedCornerOverlay" />

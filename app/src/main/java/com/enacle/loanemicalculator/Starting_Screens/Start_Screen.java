@@ -3,8 +3,10 @@ package com.enacle.loanemicalculator.Starting_Screens;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.View;
 
 import com.enacle.loanemicalculator.R;
@@ -53,5 +55,12 @@ public class Start_Screen extends AppCompatActivity {
                 startActivity(new Intent(Start_Screen.this,Start_Selection_Screen.class));
             }
         });
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(Start_Screen.this, Rate_us_Screen.class);
+        startActivity(i);
     }
 }

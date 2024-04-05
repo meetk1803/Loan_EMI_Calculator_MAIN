@@ -17,13 +17,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/white"
+            android:layout_weight="0.8"
+            android:background="@color/footer_color"
             android:orientation="horizontal">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="start|center"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:src="@drawable/app_icon" />
@@ -35,7 +35,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:gravity="start"
                 android:text="@string/title_app_loan_emi_calculator"
-                android:textColor="@color/app_bg_color"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -44,7 +44,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6.6"
+            android:layout_weight="6.8"
             android:orientation="vertical">
 
             <ScrollView
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.4"
-            android:background="@color/app_bg_color"
+            android:background="@color/footer_color"
             android:orientation="vertical">
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -104,6 +104,9 @@
                     android:text="@string/BTN_decline"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp"
+                    android:shadowColor="@color/footer_color"
+                    app:cornerRadius="@dimen/_30sdp"
+                    android:outlineSpotShadowColor="@color/footer_color"
                     app:shapeAppearanceOverlay="@style/RoundedCornerOverlay"
                     app:strokeColor="@color/white"
                     app:strokeWidth="@dimen/_2sdp" />
@@ -118,7 +121,8 @@
                     android:padding="@dimen/_5sdp"
                     android:paddingVertical="@dimen/_10sdp"
                     android:text="@string/BTN_accept"
-                    android:textColor="@color/app_bg_color"
+                    android:outlineSpotShadowColor="@color/footer_color"
+                    android:textColor="@color/footer_color"
                     android:textSize="@dimen/_15sdp"
                     app:shapeAppearanceOverlay="@style/RoundedCornerOverlay" />
 

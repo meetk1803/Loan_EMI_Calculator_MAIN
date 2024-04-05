@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -16,9 +17,19 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 public class Splash_Screen_Privacy extends AppCompatActivity {
     ExtendedFloatingActionButton BTN_accept,BTN_decline;
     MaterialCheckBox chk_privacy;
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        // Check if privacy policy has been accepted before
+        boolean isPrivacyAccepted = sharedPreferences.getBoolean("privacy_accepted", false);
+        if (isPrivacyAccepted) {
+            navigateToMainScreen();
+            return;
+        }
         setContentView(R.layout.activity_splash_screen_privacy);
 
         chk_privacy=findViewById(R.id.chk_privacy);
@@ -39,8 +50,12 @@ public class Splash_Screen_Privacy extends AppCompatActivity {
             public void onClick(View v) {
                 if(chk_privacy.isChecked()){
 
-                    startActivity(new Intent(Splash_Screen_Privacy.this,Start_Screen.class));
-                    finish();
+                    // Store acceptance in SharedPreferences
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("privacy_accepted", true);
+                    editor.apply();
+
+                    navigateToMainScreen();
                 }else {
                     Toast.makeText(Splash_Screen_Privacy.this, "Please accept terms & conditions", Toast.LENGTH_SHORT).show();
                 }
@@ -48,8 +63,11 @@ public class Splash_Screen_Privacy extends AppCompatActivity {
             }
         });
     }
-
-
+//---------------------------------------------------------------------------------------------------------
+    private void navigateToMainScreen() {
+        startActivity(new Intent(Splash_Screen_Privacy.this, Start_Screen.class));
+        finish();
+    }
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {

@@ -8,4 +8,5 @@
     <color name="answer_color">#0621A8</color>
     <color name="field_color">#BF000830</color>
     <color name="ans_color">#D6F8FF</color>
+    <color name="footer_color">#27197C</color>
 </resources>

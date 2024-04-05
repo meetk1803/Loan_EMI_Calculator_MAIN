@@ -175,6 +175,10 @@ public class EMI_Calc_Summary extends AppCompatActivity {
     }
 
 
+    public void txt_back(View v){
+        finish();
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

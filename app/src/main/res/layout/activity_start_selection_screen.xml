@@ -35,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80sdp"
                 app:cardElevation="@dimen/_5sdp"
+                app:strokeColor="@color/field_color"
                 android:backgroundTint="@color/white"
                 app:cardUseCompatPadding="true"
                 app:cardCornerRadius="@dimen/_15sdp">
@@ -55,7 +56,7 @@
                     android:fontFamily="@font/kanit_medium"
                     android:gravity="start"
                     android:text="Loan Calculator"
-                    android:textColor="@color/app_bg_color"
+                    android:textColor="@color/footer_color"
                     android:textSize="@dimen/_18sdp" />
             </com.google.android.material.card.MaterialCardView>
 
@@ -71,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80sdp"
                 app:cardElevation="@dimen/_5sdp"
+                app:strokeColor="@color/field_color"
                 android:backgroundTint="@color/white"
                 app:cardUseCompatPadding="true"
                 app:cardCornerRadius="@dimen/_15sdp">
@@ -91,7 +93,7 @@
                     android:fontFamily="@font/kanit_medium"
                     android:gravity="start"
                     android:text="Age Calculator"
-                    android:textColor="@color/app_bg_color"
+                    android:textColor="@color/footer_color"
                     android:textSize="@dimen/_18sdp" />
             </com.google.android.material.card.MaterialCardView>
 

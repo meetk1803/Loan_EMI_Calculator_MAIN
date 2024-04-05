@@ -80,4 +80,14 @@ public class Loan_EMI_Selection extends AppCompatActivity {
         });
 
     }
+    //-------------------------------------------------------------------------------------------------------------------
+    public void txt_back(View v){
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
