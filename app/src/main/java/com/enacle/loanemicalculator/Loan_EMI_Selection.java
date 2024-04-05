@@ -1,12 +1,14 @@
 package com.enacle.loanemicalculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.enacle.loanemicalculator.Calculators.EMI_Calc_Summary;
 import com.enacle.loanemicalculator.Calculators.EMI_Calculator;
+import com.enacle.loanemicalculator.Calculators.GST_Calculator;
 import com.enacle.loanemicalculator.Calculators.Loan_Calculator;
 import com.enacle.loanemicalculator.Calculators.Loan_Compare;
 import com.enacle.loanemicalculator.Calculators.SIP_Calculator;
@@ -56,11 +58,25 @@ public class Loan_EMI_Selection extends AppCompatActivity {
                 startActivity(new Intent(Loan_EMI_Selection.this, SIP_Calculator.class));
             }
         });
- card_tenure_calc.setOnClickListener(new View.OnClickListener() {
+        card_tenure_calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Loan_EMI_Selection.this, Tenure_Calculator.class));
             }
+        });
+
+        card_gst_calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Loan_EMI_Selection.this, GST_Calculator.class));
+            }
+        });
+        card_emi_calc_summary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Loan_EMI_Selection.this, EMI_Calc_Summary.class));
+            }
+
         });
 
     }

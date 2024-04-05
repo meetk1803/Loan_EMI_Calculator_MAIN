@@ -3,6 +3,7 @@ package com.enacle.loanemicalculator.Calculators;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -12,19 +13,18 @@ import android.widget.Toast;
 import com.enacle.loanemicalculator.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textview.MaterialTextView;
 
-public class EMI_Calculator extends AppCompatActivity {
-     TextInputEditText edt_principal_amt, edt_rate, edt_year;
-     TextView tv_years, tv_months;
+public class EMI_Calc_Summary extends AppCompatActivity {
+    TextInputEditText edt_principal_amt, edt_rate, edt_year;
+    TextView tv_years, tv_months;
     int monthOrYear = 1;
-     TextInputEditText edt_monthly_emi, edt_t_interest, edt_t_payment;
-     ExtendedFloatingActionButton btn_business_reset, btn_business_calculate;
-
+    TextInputEditText edt_monthly_emi, edt_t_interest, edt_t_payment;
+    ExtendedFloatingActionButton btn_business_reset, btn_business_calculate,btn_amortization;
+    public int totalMonths;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_emi_calculator);
+        setContentView(R.layout.activity_emi_calc_summary);
 
         edt_principal_amt = findViewById(R.id.edt_principal_amt);
         edt_rate = findViewById(R.id.edt_rate);
@@ -36,7 +36,27 @@ public class EMI_Calculator extends AppCompatActivity {
         edt_t_payment = findViewById(R.id.edt_t_payment);
         btn_business_reset = findViewById(R.id.btn_business_reset);
         btn_business_calculate = findViewById(R.id.btn_business_calculate);
+        btn_amortization = findViewById(R.id.btn_amortization);
 
+        btn_amortization.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (edt_principal_amt.getText().toString().isEmpty() ||
+                        edt_rate.getText().toString().isEmpty() ||
+                        edt_year.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Intent intent = new Intent(EMI_Calc_Summary.this, Summary_Amortization.class);
+                intent.putExtra("principal", edt_principal_amt.getText().toString());
+                intent.putExtra("rate", edt_rate.getText().toString());
+                intent.putExtra("duration", String.valueOf(totalMonths)); // Pass totalMonths instead of edt_year.getText().toString()
+                intent.putExtra("monthlyEMI", edt_monthly_emi.getText().toString());
+                intent.putExtra("totalInterest", edt_t_interest.getText().toString());
+                intent.putExtra("totalPayment", edt_t_payment.getText().toString());
+                startActivity(intent);
+            }
+        });
         btn_business_calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +127,7 @@ public class EMI_Calculator extends AppCompatActivity {
         // Perform EMI calculation
         double principalAmt = Double.parseDouble(edt_principal_amt.getText().toString());
         double rate = Double.parseDouble(edt_rate.getText().toString());
-        double duration = Double.parseDouble(edt_year.getText().toString());
+        int duration = Integer.parseInt(edt_year.getText().toString());
 
         // Check if rate or duration is zero
         if (principalAmt == 0 || rate == 0 || duration == 0) {
@@ -119,7 +139,7 @@ public class EMI_Calculator extends AppCompatActivity {
         double monthlyRate = rate / 1200; // Convert annual rate to monthly rate
 
         // Calculate based on months or years
-        double totalMonths;
+
         if (monthOrYear == 1) { // If years is selected
             totalMonths = duration * 12; // Convert years to total months
         } else { // If months is selected

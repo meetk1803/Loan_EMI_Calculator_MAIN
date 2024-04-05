@@ -10,11 +10,12 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.enacle.loanemicalculator.R;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class Splash_Screen_Privacy extends AppCompatActivity {
     ExtendedFloatingActionButton BTN_accept,BTN_decline;
-    CheckBox chk_privacy;
+    MaterialCheckBox chk_privacy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

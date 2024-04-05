@@ -129,17 +129,17 @@ public class SIP_Calculator extends AppCompatActivity {
             // Calculate future value of investment for years
             double futureValue = monthlyAmount * ((Math.pow(1 + monthlyRate, years * 12) - 1) / monthlyRate) * (1 + monthlyRate);
             // Display the results
-            edtInvestment.setText("₹" + String.format("%.2f", totalInvestment));
-            edtTotalInterest.setText("₹" + String.format("%.2f", futureValue - totalInvestment));
-            edtTotalPayment.setText("₹" + String.format("%.2f", futureValue));
+            edtInvestment.setText(String.format("%.2f", totalInvestment));
+            edtTotalInterest.setText(String.format("%.2f", futureValue - totalInvestment));
+            edtTotalPayment.setText(String.format("%.2f", futureValue));
         } else { // If months is selected
             totalInvestment = monthlyAmount * years;
             // Calculate future value of investment for months
             double futureValue = monthlyAmount * ((Math.pow(1 + monthlyRate, years) - 1) / monthlyRate) * (1 + monthlyRate);
             // Display the results
-            edtInvestment.setText("₹" + String.format("%.2f", totalInvestment));
-            edtTotalInterest.setText("₹" + String.format("%.2f", futureValue - totalInvestment));
-            edtTotalPayment.setText("₹" + String.format("%.2f", futureValue));
+            edtInvestment.setText(String.format("%.2f", totalInvestment));
+            edtTotalInterest.setText(String.format("%.2f", futureValue - totalInvestment));
+            edtTotalPayment.setText(String.format("%.2f", futureValue));
         }
     }
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/app_bg"
     android:orientation="vertical"
-    tools:context="com.enacle.loanemicalculator.Starting_Screens.Splash_Screen">
+    tools:context="com.enacle.loanemicalculator.Starting_Screens.Splash_Screen_Privacy">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,12 +71,13 @@
             android:background="@color/app_bg_color"
             android:orientation="vertical">
 
-            <CheckBox
+            <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/chk_privacy"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
+                app:buttonTint="@color/white"
                 android:button="@drawable/custom_checkbox_selector"
                 android:paddingLeft="@dimen/_10sdp"
                 android:text="@string/txt_i_agree_with_terms_amp_conditions"

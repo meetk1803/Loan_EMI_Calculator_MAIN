@@ -137,10 +137,10 @@ public class Loan_Calculator extends AppCompatActivity {
         double totalInterest = totalPayment - principalAmt;
 
         // Display the results
-        edtLoanAmt.setText("₹" + String.format("%.2f", principalAmt));
-        edtPrincipalAmt.setText("₹" + String.format("%.2f", principalAmt));
-        edtTotalInterest.setText("₹" + String.format("%.2f", totalInterest));
-        edtTotalPayment.setText("₹" + String.format("%.2f", totalPayment));
+        edtLoanAmt.setText(String.format("%.2f", principalAmt));
+        edtPrincipalAmt.setText(String.format("%.2f", principalAmt));
+        edtTotalInterest.setText(String.format("%.2f", totalInterest));
+        edtTotalPayment.setText(String.format("%.2f", totalPayment));
     }
 
 

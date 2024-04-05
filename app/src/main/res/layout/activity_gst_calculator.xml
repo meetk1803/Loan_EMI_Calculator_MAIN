@@ -1,9 +1,444 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calculators.GST_Calculator">
+    android:background="@drawable/app_bg"
+    android:orientation="vertical"
+    tools:context="com.enacle.loanemicalculator.Calculators.EMI_Calculator">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@color/white"
+        app:title="GST Calculator"
+        app:titleTextColor="@color/app_bg_color">
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_10sdp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingRight="@dimen/_5sdp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/opensans_regular"
+                        android:gravity="start"
+                        android:text="@string/header_initial_amount"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        app:boxBackgroundMode="filled"
+                        app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                        app:boxStrokeColor="@color/white"
+                        app:cursorColor="@color/white"
+                        app:placeholderText="0"
+                        app:placeholderTextColor="@color/white">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/initial_amount_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/field_color"
+                            android:inputType="numberDecimal"
+                            android:padding="@dimen/_1sdp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_10sdp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/opensans_regular"
+                        android:gravity="start"
+                        android:text="@string/header_rate_of_gst"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        app:boxBackgroundMode="filled"
+                        app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                        app:boxStrokeColor="@color/white"
+                        app:cursorColor="@color/white"
+                        app:placeholderText="0"
+                        app:placeholderTextColor="@color/white">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/gst_rate_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/field_color"
+                            android:inputType="numberDecimal"
+                            android:padding="@dimen/_1sdp"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/field_color"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/add_gst_radio_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:fontFamily="@font/opensans_regular"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:text="@string/header_add_gst"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        app:buttonTint="@color/white" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/subtract_gst_radio_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_25sdp"
+                        android:fontFamily="@font/opensans_regular"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:text="@string/header_subtract_gst"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        app:buttonTint="@color/white" />
+
+                </RadioGroup>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btn_business_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/kanit_medium"
+                    android:padding="@dimen/_1sdp"
+                    android:text="@string/btn_reset"
+                    android:textColor="@color/field_color"
+                    android:textSize="@dimen/_18sdp" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btn_business_calculate"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/field_color"
+                    android:fontFamily="@font/kanit_medium"
+                    android:padding="@dimen/_1sdp"
+                    android:text="@string/btn_calculate"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@color/field_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_35sdp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:gravity="center"
+                    android:text="@string/header_net_amount"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:boxBackgroundColor="@color/textfield_color"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:cursorColor="#00FFFFFF">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/net_amount_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/answer_color"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:gravity="center"
+                    android:text="@string/header_gst_amount"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:boxBackgroundColor="@color/textfield_color"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:cursorColor="#00FFFFFF">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/gst_amount_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/answer_color"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:gravity="center"
+                    android:text="@string/header_total_amount_gst_involves"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:boxBackgroundColor="@color/textfield_color"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_5sdp"
+                    app:cursorColor="#00FFFFFF">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/total_gst_involves"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:padding="@dimen/_1sdp"
+                        android:textColor="@color/answer_color"
+                        android:textSize="@dimen/_15sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="2">-->
+
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingRight="@dimen/_5sdp">-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+
+<!--                            android:fontFamily="@font/opensans_regular"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="@string/header_cgst"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_13sdp"-->
+<!--                            android:textStyle="bold" />-->
+
+<!--                        <com.google.android.material.textfield.TextInputLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_35sdp"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            app:boxBackgroundColor="@color/textfield_color"-->
+<!--                            app:boxBackgroundMode="filled"-->
+<!--                            app:boxCornerRadiusTopEnd="@dimen/_5sdp"-->
+<!--                            app:boxCornerRadiusTopStart="@dimen/_5sdp"-->
+<!--                            app:cursorColor="#00FFFFFF">-->
+
+<!--                            <com.google.android.material.textfield.TextInputEditText-->
+<!--                                android:id="@+id/cgst_amount"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:clickable="false"-->
+<!--                                android:editable="false"-->
+<!--                                android:focusable="false"-->
+<!--                                android:gravity="center"-->
+<!--                                android:inputType="text"-->
+<!--                                android:padding="@dimen/_1sdp"-->
+<!--                                android:textColor="@color/answer_color"-->
+<!--                                android:textSize="@dimen/_15sdp" />-->
+
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:paddingLeft="@dimen/_10sdp">-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/opensans_regular"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="@string/header_sgst"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_13sdp"-->
+<!--                            android:textStyle="bold" />-->
+
+<!--                        <com.google.android.material.textfield.TextInputLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_35sdp"-->
+<!--                            android:layout_marginTop="@dimen/_5sdp"-->
+<!--                            app:boxBackgroundColor="@color/textfield_color"-->
+<!--                            app:boxBackgroundMode="filled"-->
+<!--                            app:boxCornerRadiusTopEnd="@dimen/_5sdp"-->
+<!--                            app:boxCornerRadiusTopStart="@dimen/_5sdp"-->
+<!--                            app:cursorColor="#00FFFFFF">-->
+
+<!--                            <com.google.android.material.textfield.TextInputEditText-->
+<!--                                android:id="@+id/Sgst_amount"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:clickable="false"-->
+<!--                                android:editable="false"-->
+<!--                                android:focusable="false"-->
+<!--                                android:gravity="center"-->
+<!--                                android:inputType="text"-->
+<!--                                android:padding="@dimen/_1sdp"-->
+<!--                                android:textColor="@color/answer_color"-->
+<!--                                android:textSize="@dimen/_15sdp" />-->
+
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_cgst_sgst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="(CGST : 0.00% = 0),\n(SGST : 0.00% = 0)"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

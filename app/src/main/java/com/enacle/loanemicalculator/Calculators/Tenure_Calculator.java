@@ -123,9 +123,9 @@ public class Tenure_Calculator extends AppCompatActivity {
         double totalPayment = principalAmt + totalInterest;
 
         // Set the principal amount, total interest, and total payment
-        edtPrincipalAmtAns.setText(String.format("₹%.2f", principalAmt));
-        edtTotalInterest.setText(String.format("₹%.2f", totalInterest));
-        edtTotalPayment.setText(String.format("₹%.2f", totalPayment));
+        edtPrincipalAmtAns.setText(String.format("%.2f", principalAmt));
+        edtTotalInterest.setText(String.format("%.2f", totalInterest));
+        edtTotalPayment.setText(String.format("%.2f", totalPayment));
     }
 
 
