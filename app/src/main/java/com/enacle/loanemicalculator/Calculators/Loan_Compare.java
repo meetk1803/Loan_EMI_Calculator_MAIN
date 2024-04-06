@@ -13,11 +13,15 @@ import com.enacle.loanemicalculator.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.DecimalFormat;
+
 public class Loan_Compare extends AppCompatActivity {
 
     TextInputEditText edtPrincipalFirst, edtPrincipalSecond, edtRateFirst, edtRateSecond, edtTermFirst, edtTermSecond, edtMonthlyEMIFirst, edtMonthlyEMISecond, edtInterestFirst, edtInterestSecond, edtPaymentFirst, edtPaymentSecond;
     TextView edtEMIDiffer, edtInterestDiffer, edtPaymentDiffer, tvYears, tvMonths;
     int monthOrYear = 1; // Default to years
+
+    DecimalFormat formatter = new DecimalFormat("#,##,###.00");
     ExtendedFloatingActionButton btnReset, btnCalculate;
 
     @Override
@@ -118,6 +122,18 @@ public class Loan_Compare extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
             return;
         }
+        String rateString1 = edtRateFirst.getText().toString();
+        String rateString2 = edtRateSecond.getText().toString();
+        if (!rateString1.isEmpty() || !rateString2.isEmpty()) {
+            double rateValue = Double.parseDouble(rateString1);
+            if (rateValue < 0 || rateValue >= 100) {
+                Toast.makeText(getApplicationContext(), "Please enter a valid rate of interest (0 to 99.99)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the rate of interest", Toast.LENGTH_SHORT).show();
+            return;
+        }
         try {
             // Parse input values
             double principalFirst = Double.parseDouble(edtPrincipalFirst.getText().toString());
@@ -135,35 +151,43 @@ public class Loan_Compare extends AppCompatActivity {
             double monthlyPaymentFirst = calculateEmi(principalFirst, rateFirst, termMonthsFirst);
             double monthlyPaymentSecond = calculateEmi(principalSecond, rateSecond, termMonthsSecond);
 
-            // Display the calculated monthly payments in the respective EditTexts
-            edtMonthlyEMIFirst.setText(String.format("%.2f", monthlyPaymentFirst));
-            edtMonthlyEMISecond.setText(String.format("%.2f", monthlyPaymentSecond));
+            // Display the calculated monthly payments with formatting
+            edtMonthlyEMIFirst.setText(formatter.format(monthlyPaymentFirst));
+            edtMonthlyEMISecond.setText(formatter.format(monthlyPaymentSecond));
 
             // Calculate total interest for both loans
             double totalInterestFirst = (monthlyPaymentFirst * termMonthsFirst) - principalFirst;
             double totalInterestSecond = (monthlyPaymentSecond * termMonthsSecond) - principalSecond;
 
             // Display the calculated total interest in the respective EditTexts
-            edtInterestFirst.setText(String.format("%.2f", totalInterestFirst));
-            edtInterestSecond.setText(String.format("%.2f", totalInterestSecond));
+            edtInterestFirst.setText(formatter.format(totalInterestFirst));
+            edtInterestSecond.setText(formatter.format(totalInterestSecond));
+
 
             // Calculate total payment for both loans
             double totalPaymentFirst = principalFirst + totalInterestFirst;
             double totalPaymentSecond = principalSecond + totalInterestSecond;
 
             // Display the calculated total payments in the respective EditTexts
-            edtPaymentFirst.setText(String.format("%.2f", totalPaymentFirst));
-            edtPaymentSecond.setText(String.format("%.2f", totalPaymentSecond));
+            edtPaymentFirst.setText(formatter.format(totalPaymentFirst));
+            edtPaymentSecond.setText(formatter.format(totalPaymentSecond));
 
             // Calculate and display the difference for each parameter
             double emiDifference = Math.abs(monthlyPaymentFirst - monthlyPaymentSecond);
             double interestDifference = Math.abs(totalInterestFirst - totalInterestSecond);
             double paymentDifference = Math.abs(totalPaymentFirst - totalPaymentSecond);
 
-            edtEMIDiffer.setText("Difference : Loan 1 " + (monthlyPaymentFirst < monthlyPaymentSecond ? "lower" : "higher") + " by " + String.format("%.2f", emiDifference));
-            edtInterestDiffer.setText("Difference : Loan 1 " + (totalInterestFirst < totalInterestSecond ? "lower" : "higher") + " by " + String.format("%.2f", interestDifference));
-            edtPaymentDiffer.setText("Difference : Loan 1 " + (totalPaymentFirst < totalPaymentSecond ? "lower" : "higher") + " by " + String.format("%.2f", paymentDifference));
+// Display the difference in monthly payments
+            String monthlyPaymentDifference = monthlyPaymentFirst < monthlyPaymentSecond ? "lower" : "higher";
+            edtEMIDiffer.setText("Difference : Loan 1 " + monthlyPaymentDifference + " by " + formatter.format(emiDifference));
 
+// Display the difference in total interest
+            String interestDifferenceString = totalInterestFirst < totalInterestSecond ? "lower" : "higher";
+            edtInterestDiffer.setText("Difference : Loan 1 " + interestDifferenceString + " by " + formatter.format(interestDifference));
+
+// Display the difference in total payments
+            String paymentDifferenceString = totalPaymentFirst < totalPaymentSecond ? "lower" : "higher";
+            edtPaymentDiffer.setText("Difference : Loan 1 " + paymentDifferenceString + " by " + formatter.format(paymentDifference));
         } catch (Exception e) {
             e.printStackTrace();
         }

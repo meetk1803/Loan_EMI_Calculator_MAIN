@@ -14,11 +14,16 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 
+import java.text.DecimalFormat;
+
 public class EMI_Calculator extends AppCompatActivity {
      TextInputEditText edt_principal_amt, edt_rate, edt_year;
      TextView tv_years, tv_months;
     int monthOrYear = 1;
-     TextInputEditText edt_monthly_emi, edt_t_interest, edt_t_payment;
+    // Create a DecimalFormat object
+    DecimalFormat formatter = new DecimalFormat("#,##,###.00");
+
+    TextInputEditText edt_monthly_emi, edt_t_interest, edt_t_payment;
      ExtendedFloatingActionButton btn_business_reset, btn_business_calculate;
 
     @Override
@@ -103,7 +108,17 @@ public class EMI_Calculator extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        String rateString = edt_rate.getText().toString();
+        if (!rateString.isEmpty()) {
+            double rateValue = Double.parseDouble(rateString);
+            if (rateValue < 0 || rateValue >= 100) {
+                Toast.makeText(getApplicationContext(), "Please enter a valid rate of interest (0 to 99.99)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the rate of interest", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // Perform EMI calculation
         double principalAmt = Double.parseDouble(edt_principal_amt.getText().toString());
         double rate = Double.parseDouble(edt_rate.getText().toString());
@@ -140,10 +155,10 @@ public class EMI_Calculator extends AppCompatActivity {
         double totalPayment = monthlyEMI * totalMonths;
         double totalInterest = totalPayment - principalAmt;
 
-        // Display the results
-        edt_monthly_emi.setText(String.format("%.2f", monthlyEMI));
-        edt_t_interest.setText(String.format("%.2f", totalInterest));
-        edt_t_payment.setText(String.format("%.2f", totalPayment));
+        // Display the results with formatting
+        edt_monthly_emi.setText(formatter.format(monthlyEMI));
+        edt_t_interest.setText(formatter.format(totalInterest));
+        edt_t_payment.setText(formatter.format(totalPayment));
     }
 
 

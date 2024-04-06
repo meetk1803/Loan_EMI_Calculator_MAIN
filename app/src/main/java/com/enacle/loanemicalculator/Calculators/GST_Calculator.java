@@ -13,10 +13,13 @@ import com.enacle.loanemicalculator.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.DecimalFormat;
+
 public class GST_Calculator extends AppCompatActivity {
      TextInputEditText initialAmountEditText, gstRateEditText, gstAmountEditText,
             netAmountEditText, totalAmountEditText, cgstEditText, sgstEditText;
      RadioButton addGSTRadioButton, subtractGSTRadioButton;
+    DecimalFormat formatter = new DecimalFormat("#,##,###.00");
      TextView txt_cgst_sgst;
      ExtendedFloatingActionButton btn_business_calculate,btn_business_reset;
 
@@ -62,7 +65,17 @@ public class GST_Calculator extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        String rateString = gstAmountEditText.getText().toString();
+        if (!rateString.isEmpty()) {
+            double rateValue = Double.parseDouble(rateString);
+            if (rateValue < 0 || rateValue >= 100) {
+                Toast.makeText(getApplicationContext(), "Please enter a valid rate of interest (0 to 99.99)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the rate of interest", Toast.LENGTH_SHORT).show();
+            return;
+        }
         try {
             // Retrieve values entered by the user
             double initialAmount = Double.parseDouble(initialAmountEditText.getText().toString());
@@ -84,14 +97,15 @@ public class GST_Calculator extends AppCompatActivity {
             double cgst = gstAmount / 2;
             double sgst = gstAmount / 2;
 
-            txt_cgst_sgst.setText("(CGST : " +gstRate/2+"% = " + cgst+")\n(SGST : " +gstRate/2+"% = " + sgst +")");
+
+            txt_cgst_sgst.setText("(CGST : " +gstRate/2+"% = " +  formatter.format(cgst)+")\n(SGST : " +gstRate/2+"% = " +  formatter.format(sgst) +")");
             // Calculate the total amount including GST
             double totalAmount = isAddGST ? netAmount : initialAmount;
 
             // Display the calculated values in the respective TextInputEditText fields
-            gstAmountEditText.setText(String.format("%.2f", gstAmount));
-            netAmountEditText.setText(String.format("%.2f", netAmount));
-            totalAmountEditText.setText(String.format("%.2f", totalAmount));
+            gstAmountEditText.setText(formatter.format(gstAmount));
+            netAmountEditText.setText(formatter.format(netAmount));
+            totalAmountEditText.setText(formatter.format(totalAmount));
 //            cgstEditText.setText(String.format("%.2f", cgst));
 //            sgstEditText.setText(String.format("%.2f", sgst));
         } catch (NumberFormatException e) {

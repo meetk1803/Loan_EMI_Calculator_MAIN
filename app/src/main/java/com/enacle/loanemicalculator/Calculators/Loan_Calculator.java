@@ -1,7 +1,5 @@
 package com.enacle.loanemicalculator.Calculators;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -9,16 +7,21 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.enacle.loanemicalculator.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class Loan_Calculator extends AppCompatActivity {
-     TextInputEditText edtEmiAmt, edtRate, edtYear, edtLoanAmt, edtPrincipalAmt, edtTotalInterest, edtTotalPayment;
-     TextView tvYears, tvMonths;
+import java.text.DecimalFormat;
 
+public class Loan_Calculator extends AppCompatActivity {
+    TextInputEditText edtEmiAmt, edtRate, edtYear, edtLoanAmt, edtPrincipalAmt, edtTotalInterest, edtTotalPayment;
+    TextView tvYears, tvMonths;
+    DecimalFormat formatter = new DecimalFormat("#,##,###.00");
     int monthOrYear = 1;
     ExtendedFloatingActionButton btn_business_reset, btn_business_calculate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +95,7 @@ public class Loan_Calculator extends AppCompatActivity {
         edtTotalInterest.setText("");
         edtTotalPayment.setText("");
     }
+
     private void calculate(View view) {
         // Hide the soft keyboard
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -104,7 +108,17 @@ public class Loan_Calculator extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        String rateString = edtRate.getText().toString();
+        if (!rateString.isEmpty()) {
+            double rateValue = Double.parseDouble(rateString);
+            if (rateValue < 0 || rateValue >= 100) {
+                Toast.makeText(getApplicationContext(), "Please enter a valid rate of interest (0 to 99.99)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the rate of interest", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // Perform EMI calculation
         double emiAmt = Double.parseDouble(edtEmiAmt.getText().toString());
         double rate = Double.parseDouble(edtRate.getText().toString());
@@ -136,13 +150,14 @@ public class Loan_Calculator extends AppCompatActivity {
         // Calculate total interest
         double totalInterest = totalPayment - principalAmt;
 
-        // Display the results
-        edtLoanAmt.setText(String.format("%.2f", principalAmt));
-        edtPrincipalAmt.setText(String.format("%.2f", principalAmt));
-        edtTotalInterest.setText(String.format("%.2f", totalInterest));
-        edtTotalPayment.setText(String.format("%.2f", totalPayment));
-    }
 
+// Display the results with formatting
+        edtLoanAmt.setText(formatter.format(principalAmt));
+        edtPrincipalAmt.setText(formatter.format(principalAmt));
+        edtTotalInterest.setText(formatter.format(totalInterest));
+        edtTotalPayment.setText(formatter.format(totalPayment));
+
+    }
 
 
     public void setColorsOfSelectedTextView(TextView textView, TextView textView2) throws Exception {
@@ -153,7 +168,7 @@ public class Loan_Calculator extends AppCompatActivity {
     }
 
 
-    public void txt_back(View v){
+    public void txt_back(View v) {
         finish();
     }
 

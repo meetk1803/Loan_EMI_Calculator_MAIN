@@ -54,15 +54,15 @@ public class Summary_Amortization extends AppCompatActivity {
         tableLayout = findViewById(R.id.tableLayout);
 
         Intent i = getIntent();
-        principalAmt = Double.parseDouble(i.getStringExtra("principal").replace("", ""));
+        principalAmt = Double.parseDouble(i.getStringExtra("principal").replaceAll(",", ""));
         rate = Double.parseDouble(i.getStringExtra("rate"));
         totalMonths = Integer.parseInt(i.getStringExtra("duration"));
-        monthlyEMI = Double.parseDouble(i.getStringExtra("monthlyEMI").replace("", ""));
-        totalInterest = Double.parseDouble(i.getStringExtra("totalInterest").replace("", ""));
-        totalPayment = Double.parseDouble(i.getStringExtra("totalPayment").replace("", ""));
+        monthlyEMI = Double.parseDouble(i.getStringExtra("monthlyEMI").replaceAll(",", ""));
+        totalInterest = Double.parseDouble(i.getStringExtra("totalInterest").replaceAll(",", ""));
+        totalPayment = Double.parseDouble(i.getStringExtra("totalPayment").replaceAll(",", ""));
 
         // Display data on views
-        DecimalFormat formatter = new DecimalFormat("#,###.00");
+        DecimalFormat formatter = new DecimalFormat("#,##,###.00");
         txtLoanAmt.setText(formatter.format(principalAmt));
         txtRate.setText(rate + "%");
         txtMonths.setText(String.valueOf(totalMonths));
@@ -221,13 +221,13 @@ public class Summary_Amortization extends AppCompatActivity {
     }
 
     private static String formatCurrency(double amount) {
-        DecimalFormat formatter = new DecimalFormat("#,###.00");
+        DecimalFormat formatter = new DecimalFormat("#,##,###.00");
         return formatter.format(amount);
     }
 
     public void share_info_age(View v) {
         StringBuilder sb = new StringBuilder();
-        DecimalFormat formatter = new DecimalFormat("#,###.00");
+        DecimalFormat formatter = new DecimalFormat("#,##,###.00");
         sb.append("Loan Amount: " + formatter.format(principalAmt) + "\n");
         sb.append("Interest Rate Per Year: " + rate + "%\n");
         sb.append("Number of Months: " + totalMonths + "\n");
@@ -250,7 +250,7 @@ public class Summary_Amortization extends AppCompatActivity {
 
         // Calculate and print each schedule item
         double remainingPrincipal = principalAmt;
-        DecimalFormat formatter = new DecimalFormat("#,###.00");
+        DecimalFormat formatter = new DecimalFormat("#,##,###.00");
         for (int i = 1; i <= totalMonths; i++) {
             double interest = remainingPrincipal * (rate / 12) / 100;
             double principalPayment = monthlyEMI - interest;

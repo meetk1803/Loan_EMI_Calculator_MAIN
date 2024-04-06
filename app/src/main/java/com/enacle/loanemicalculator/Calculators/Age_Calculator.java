@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.enacle.loanemicalculator.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
@@ -153,14 +154,24 @@ public class Age_Calculator extends AppCompatActivity {
             long minutesDiff = ChronoUnit.MINUTES.between(birthDate.atStartOfDay(), todayDate.atStartOfDay());
             long secondsDiff = ChronoUnit.SECONDS.between(birthDate.atStartOfDay(), todayDate.atStartOfDay());
 
+            // Format the differences using a DecimalFormat
+            DecimalFormat formatter = new DecimalFormat("#,##,###");
+            String formattedYearsDiff = formatter.format(yearsDiff);
+            String formattedMonthsDiff = formatter.format(monthsDiff);
+            String formattedDaysDiff = formatter.format(daysDiff);
+            String formattedWeeksDiff = formatter.format(weeksDiff);
+            String formattedHoursDiff = formatter.format(hoursDiff);
+            String formattedMinutesDiff = formatter.format(minutesDiff);
+            String formattedSecondsDiff = formatter.format(secondsDiff);
+
             // Set additional information in TextViews
-            txt_years_third.setText(String.valueOf(yearsDiff));
-            txt_months_third.setText(String.valueOf(monthsDiff));
-            txt_days_third.setText(String.valueOf(daysDiff));
-            txt_weeks_third.setText(String.valueOf(weeksDiff));
-            txt_hours_third.setText(String.valueOf(hoursDiff));
-            txt_minutes_third.setText(String.valueOf(minutesDiff));
-            txt_seconds_third.setText(String.valueOf(secondsDiff));
+            txt_years_third.setText(formattedYearsDiff);
+            txt_months_third.setText(formattedMonthsDiff);
+            txt_days_third.setText(formattedDaysDiff);
+            txt_weeks_third.setText(formattedWeeksDiff);
+            txt_hours_third.setText(formattedHoursDiff);
+            txt_minutes_third.setText(formattedMinutesDiff);
+            txt_seconds_third.setText(formattedSecondsDiff);
 
             printNextBirthdays(strBirthDate);
         }

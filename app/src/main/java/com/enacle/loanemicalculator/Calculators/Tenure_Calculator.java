@@ -1,7 +1,5 @@
 package com.enacle.loanemicalculator.Calculators;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -9,14 +7,20 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.enacle.loanemicalculator.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.text.DecimalFormat;
 
 public class Tenure_Calculator extends AppCompatActivity {
     TextInputEditText edtPrincipalAmt, edtEmi, edtRate;
     TextView txtMonths, txtYears, edtPrincipalAmtAns, edtTotalInterest, edtTotalPayment;
     ExtendedFloatingActionButton btnReset, btnCalculate;
+    // Define your DecimalFormat formatter
+    DecimalFormat formatter = new DecimalFormat("#,##,###.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +88,29 @@ public class Tenure_Calculator extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
             return;
         }
+        String emiString = edtEmi.getText().toString();
+        if (!emiString.isEmpty()) {
+            double emiValue = Double.parseDouble(emiString);
+            if (emiValue < 50) {
+                Toast.makeText(getApplicationContext(), "Please enter a valid EMI", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter an EMI", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        String rateString = edtRate.getText().toString();
+        if (!rateString.isEmpty()) {
+            double rateValue = Double.parseDouble(rateString);
+            if (rateValue < 0 || rateValue >= 100) {
+                Toast.makeText(getApplicationContext(), "Please enter a valid rate of interest (0 to 99.99)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the rate of interest", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // Perform calculation
         double principalAmt = Double.parseDouble(edtPrincipalAmt.getText().toString());
         double emi = Double.parseDouble(edtEmi.getText().toString());
@@ -114,7 +140,7 @@ public class Tenure_Calculator extends AppCompatActivity {
         // Set the tenure in years and months combined format
         txtYears.setText(String.format("%d yr %d mon", years, months));
         // Set the total number of months in months field
-        txtMonths.setText(String.format("%d mon", (int)tenureMonths));
+        txtMonths.setText(String.format("%d mon", (int) tenureMonths));
 
         // Calculate total interest
         double totalInterest = (emi * tenureMonths) - principalAmt;
@@ -123,13 +149,13 @@ public class Tenure_Calculator extends AppCompatActivity {
         double totalPayment = principalAmt + totalInterest;
 
         // Set the principal amount, total interest, and total payment
-        edtPrincipalAmtAns.setText(String.format("%.2f", principalAmt));
-        edtTotalInterest.setText(String.format("%.2f", totalInterest));
-        edtTotalPayment.setText(String.format("%.2f", totalPayment));
+        edtPrincipalAmtAns.setText(formatter.format(principalAmt));
+        edtTotalInterest.setText(formatter.format(totalInterest));
+        edtTotalPayment.setText(formatter.format(totalPayment));
     }
 
 
-    public void txt_back(View v){
+    public void txt_back(View v) {
         finish();
     }
 

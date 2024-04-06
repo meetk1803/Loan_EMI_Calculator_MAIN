@@ -13,12 +13,16 @@ import com.enacle.loanemicalculator.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.DecimalFormat;
+
 public class SIP_Calculator extends AppCompatActivity {
 
     TextInputEditText edtMonthlyAmount, edtRate, edtYear, edtInvestment, edtTotalInterest, edtTotalPayment;
     ExtendedFloatingActionButton btnReset, btnCalculate;
     TextView tvYears, tvMonths;
     int monthOrYear = 1;
+    // Define your DecimalFormat formatter
+    DecimalFormat formatter = new DecimalFormat("#,##,###.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +111,17 @@ public class SIP_Calculator extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter all inputs", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        String rateString = edtRate.getText().toString();
+        if (!rateString.isEmpty()) {
+            double rateValue = Double.parseDouble(rateString);
+            if (rateValue < 0 || rateValue >= 100) {
+                Toast.makeText(getApplicationContext(), "Please enter a valid rate of interest (0 to 99.99)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the rate of interest", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // Perform SIP calculation
         double monthlyAmount = Double.parseDouble(edtMonthlyAmount.getText().toString());
         double rate = Double.parseDouble(edtRate.getText().toString());
@@ -122,25 +136,28 @@ public class SIP_Calculator extends AppCompatActivity {
 
         double monthlyRate = rate / 1200; // Convert annual rate to monthly rate
 
-        // Calculate total investment based on years or months
+
+
+// Calculate total investment based on years or months
         double totalInvestment;
         if (monthOrYear == 1) { // If years is selected
             totalInvestment = monthlyAmount * years * 12;
             // Calculate future value of investment for years
             double futureValue = monthlyAmount * ((Math.pow(1 + monthlyRate, years * 12) - 1) / monthlyRate) * (1 + monthlyRate);
             // Display the results
-            edtInvestment.setText(String.format("%.2f", totalInvestment));
-            edtTotalInterest.setText(String.format("%.2f", futureValue - totalInvestment));
-            edtTotalPayment.setText(String.format("%.2f", futureValue));
+            edtInvestment.setText(formatter.format(totalInvestment));
+            edtTotalInterest.setText(formatter.format(futureValue - totalInvestment));
+            edtTotalPayment.setText(formatter.format(futureValue));
         } else { // If months is selected
             totalInvestment = monthlyAmount * years;
             // Calculate future value of investment for months
             double futureValue = monthlyAmount * ((Math.pow(1 + monthlyRate, years) - 1) / monthlyRate) * (1 + monthlyRate);
             // Display the results
-            edtInvestment.setText(String.format("%.2f", totalInvestment));
-            edtTotalInterest.setText(String.format("%.2f", futureValue - totalInvestment));
-            edtTotalPayment.setText(String.format("%.2f", futureValue));
+            edtInvestment.setText(formatter.format(totalInvestment));
+            edtTotalInterest.setText(formatter.format(futureValue - totalInvestment));
+            edtTotalPayment.setText(formatter.format(futureValue));
         }
+
     }
 
 
